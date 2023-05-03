@@ -7,6 +7,8 @@
 **
 */
 
+# define GL_SILENCE_DEPRECATION 
+
 void    *mlx_new_opengl_window(void *mlx_ptr, int size_x, int size_y, char *title);
 
 /* create an opengl window. put_image & pixel_put & string_put do not work there. */

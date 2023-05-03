@@ -6,7 +6,7 @@
 #    By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 18:35:15 by pgouasmi          #+#    #+#              #
-#    Updated: 2023/04/25 17:31:21 by pgouasmi         ###   ########.fr        #
+#    Updated: 2023/04/27 17:38:26 by pgouasmi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ MLX_FILE	=	libmlx.a
 
 LIBFT_LIB	=	$(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
 
-MLX_FLAG	=	-framework OpenGL -framework AppKit
+MLX_FLAG	=	-framework OpenGL -framework AppKit 
 
 MLX_PATH	=	./minilibx_opengl_20191021/
 

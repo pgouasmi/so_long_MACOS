@@ -6,12 +6,14 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 18:35:05 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/04/26 16:58:59 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/02 12:48:54 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# define GL_SILENCE_DEPRECATION 
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -33,11 +35,47 @@ typedef struct s_list
 
 typedef struct s_map
 {
-	char **map;
-	int is_p;
-	int is_c;
-	int is_e;
-}		t_map;
+	char **full_map;
+	int p_position[2];
+	char *file_name;
+	int fd;
+	size_t row;
+	size_t line;
+	int p_count;
+	int c_count;
+	int e_count;
+}		t_map; 
+
+typedef struct s_img
+{
+	int width;
+	int height;
+	const char *path;
+	char *character;
+	char *wall;
+	char *floor;
+	char *collectible;
+	char *exit_closed;
+	char *exit_open;
+	char *ennemy;
+	void *char_img;
+	void *wall_img;
+	void *floor_img;
+	void *collect_img;
+	void *cl_exit_img;
+	void *op_exit_img;
+	void *ennemy_img;
+}	t_img;
+
+typedef struct s_game
+{
+	t_map map;
+	t_img img;
+	void *mlx_ptr;
+	void *win_ptr;
+	int	picked_c;
+	int current_p_position[2];
+}	t_game;
 
 int		ft_atoi(const char *str);
 int		ft_isalnum(int c);
