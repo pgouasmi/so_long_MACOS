@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:02:35 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/16 19:04:20 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:28:48 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ void ft_other_render(t_game *game)
 	j = 0;
 	while (game->map.full_map[j])
 	{
-		while(j < game->map.line)
+		while(game->map.full_map[j][i])
 		{
+			ft_printf("other render : i = %d\n", i);
+			ft_printf("other render : map[%d][%i] = %c\n", j, i, game->map.full_map[j][i]);
 			if (game->map.full_map[j][i] == 'C')
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.collect_img, j * 64, i * 64);
 			if (game->map.full_map[j][i] == 'P')
@@ -48,6 +50,8 @@ void ft_background_render(t_game *game)
 	{
 		while(game->map.full_map[j][i])
 		{
+			ft_printf("bg render : i = %d\n", i);
+			ft_printf("bg render : map[%d][%i] = %c\n", j, i, game->map.full_map[j][i]);
 			if (game->map.full_map[j][i] == '1')
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.wall_img, j * 64, i * 64);
 			if (game->map.full_map[j][i] == '0')
