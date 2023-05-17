@@ -6,7 +6,7 @@
 #    By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 18:35:15 by pgouasmi          #+#    #+#              #
-#    Updated: 2023/05/10 12:09:32 by pgouasmi         ###   ########.fr        #
+#    Updated: 2023/05/15 16:14:20 by pgouasmi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,11 @@ SRCS = 	./utils/utils.c					\
 		./utils/get_map_from_file.c		\
 		./utils/is_map_solvable.c		\
 		./utils/map_checker.c			\
+		./utils/set_struct.c			\
+		./utils/free.c					\
+		./utils/solve_map.c				\
+		./utils/render/render.c			\
+		test.c							\
 
 LIBFT_PATH	=	./includes/
 

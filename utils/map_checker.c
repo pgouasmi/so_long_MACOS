@@ -6,16 +6,11 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:13:34 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/10 12:11:20 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:06:23 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	ft_check_map_top_bottom(char *str)
-{
-	return (ft_str_same_char_str(str, '1'));
-}
 
 int	ft_map_checker_check(t_map *checker)
 {
@@ -28,6 +23,21 @@ int	ft_map_checker_check(t_map *checker)
 	return (0);
 }
 
+void	ft_map_error_case(int error)
+{
+	if (error == 1)
+		ft_printf("Error\nMap is not rectangular\n");
+	if (error == 2 || error == 3)
+		ft_printf("Error\nMap's borders are not 1\n");
+	if (error == 4)
+		ft_printf("Error\nUnknown character(s) in the map\n");
+}
+
+int	ft_check_map_top_bottom(char *str)
+{
+	return (ft_str_same_char_str(str, '1'));
+}
+
 int	ft_check_middle_lines(char *str, t_map *checker)
 {
 	size_t	i;
@@ -35,15 +45,15 @@ int	ft_check_middle_lines(char *str, t_map *checker)
 	i = 0;
 	while (str[i])
 	{
-		if (i == 0 || i == ft_strlen(str))
+		if (i == 0 || i == ft_strlen(str) - 1)
 		{
 			if (str[i] != '1')
 				return (1);
 		}
 		else
 		{
-			if (ft_strtrim((const char *)str, "10PCE"))
-				return (1);
+			if ((ft_strtrim((const char *)str, "10PCE"))[0])
+				return (2);
 			if (str[i] == 'E')
 				checker->e_count++;
 			if (str[i] == 'C')
@@ -56,37 +66,34 @@ int	ft_check_middle_lines(char *str, t_map *checker)
 	return (0);
 }
 
-void	ft_map_checker_initialize(t_game *game)
-{
-	game->map.c_count = 0;
-	game->map.e_count = 0;
-	game->map.p_count = 0;
-}
-
 /*need to add map is solvable*/
 
 int	ft_check_map(t_game *game)
 {
 	size_t	j;
+	int		flag_middle;
 
-	ft_map_checker_initialize(game);
 	game->map.row = ft_strlen(game->map.full_map[0]);
-	j = 0;
-	while (j < game->map.line)
+	ft_map_checker_initialize(game);
+	j = -1;
+	while (++j < game->map.line)
 	{
+		if (ft_strlen(game->map.full_map[j]) != game->map.row)
+			return (ft_map_error_case(1), 1);
 		if (j == 0 || j == game->map.line - 1)
 		{
-			if ((ft_strlen(game->map.full_map[j]) != game->map.row)
-				|| (!ft_check_map_top_bottom(game->map.full_map[j])))
-				return (1);
+			if (!ft_check_map_top_bottom(game->map.full_map[j]))
+				return (ft_map_error_case(2), 1);
 		}
-		if (j >= 1 && j < (game->map.line - 1))
+		else
 		{
-			if ((ft_strlen(game->map.full_map[j]) != game->map.row)
-				|| (ft_check_middle_lines(game->map.full_map[j], &game->map)))
-				return (1);
+			flag_middle = ft_check_middle_lines(game->map.full_map[j],
+					&game->map);
+			if (flag_middle == 1)
+				return (ft_map_error_case(3), 1);
+			if (flag_middle == 2)
+				return (ft_map_error_case(4), 1);
 		}
-		j++;
 	}
 	if (ft_map_checker_check(&game->map))
 		return (1);

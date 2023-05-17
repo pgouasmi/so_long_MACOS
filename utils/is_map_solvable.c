@@ -6,13 +6,13 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:20:50 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/10 11:40:43 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:38:14 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_find_p_pos(t_map *map)
+void	ft_find_p_pos(t_game *game)
 {
 	int	j;
 	int	i;
@@ -20,19 +20,19 @@ void	ft_find_p_pos(t_map *map)
 	j = 0;
 	while (1)
 	{
-		if (ft_strchr((const char *)map->full_map[j], 'P'))
+		if (ft_strchr((const char *)game->map.full_map[j], 'P'))
 			break ;
 		j++;
 	}
 	i = 0;
-	while (map->full_map[j][i] != 'P')
+	while (game->map.full_map[j][i] != 'P')
 		i++;
-	map->p_position[0] = j;
-	map->p_position[1] = i;
+	game->current_p_position[0] = j;
+	game->current_p_position[1] = i;
 }
 
-int	ft_map_is_solvable(t_map *map)
+int	ft_map_is_solvable(t_game *game)
 {
-	ft_find_p_pos(map);
+	ft_find_p_pos(game);
 	return (0);
 }
