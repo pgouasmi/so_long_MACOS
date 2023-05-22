@@ -6,30 +6,17 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:18:02 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/11 16:15:39 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:43:30 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-/*malloc : game.map.file_name; game->map.full_map; game->map.full_map[i]*/
-void	ft_get_map(t_game *game)
+static void	ft_get_map(t_game *game)
 {
 	size_t	i;
 	char	*line;
 
-	game->map.fd = open(game->map.file_name, O_RDONLY);
-	if (game->map.line < 3)
-	{
-		ft_printf("trop peu de lignes, erreur\n");
-		ft_free_struct(game, 1);
-	}
-	game->map.full_map = malloc(sizeof(char *) * (game->map.line));
-	if (!game->map.full_map)
-		return (ft_free_struct(game, 1));
-	game->map.full_map[game->map.line] = ft_strdup("");
-	if (!game->map.full_map[game->map.line])
-		return (ft_free_struct(game, 2), exit(1));
 	i = 0;
 	game->map.fd = open(game->map.file_name, O_RDONLY);
 	while (1)
@@ -44,4 +31,20 @@ void	ft_get_map(t_game *game)
 		i++;
 	}
 	close(game->map.fd);
+}
+
+void	ft_get_map_setup(t_game *game)
+{
+	if (game->map.line < 3)
+	{
+		ft_printf("trop peu de lignes, erreur\n");
+		ft_free_struct(game, 1);
+	}
+	game->map.full_map = malloc(sizeof(char *) * (game->map.line));
+	if (!game->map.full_map)
+		return (ft_free_struct(game, 1));
+	game->map.full_map[game->map.line] = ft_strdup("");
+	if (!game->map.full_map[game->map.line])
+		return (ft_free_struct(game, 2), exit(1));
+	ft_get_map(game);
 }

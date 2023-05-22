@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:07:55 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/16 19:05:07 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:31:37 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	ft_map_checker_initialize(t_game *game)
 	game->map.p_count = 0;
 	game->img.win_width = 64 * game->map.row;
 	game->img.win_height = 64 * game->map.line;
-	ft_printf("win_width : %d\n\n", game->img.win_width);
-
 }
 
 void	ft_set_img_path(t_game *game)
@@ -48,7 +46,8 @@ void	ft_img_first(t_game *game)
 
 void	ft_set_img_void(t_game *game)
 {
-	int height, width;
+	int	height;
+	int	width;
 
 	game->img.char_img = mlx_xpm_file_to_image(game->mlx_ptr,
 			game->img.character, &width, &height);
@@ -70,7 +69,7 @@ void	ft_set_img(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
 	if (!game->mlx_ptr)
-		return(ft_free_struct(game, 3), exit(1));
+		return (ft_free_struct(game, 3), exit(1));
 	ft_set_img_path(game);
 	ft_img_first(game);
 	ft_set_img_void(game);

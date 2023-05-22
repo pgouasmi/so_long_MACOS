@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 14:26:58 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/22 13:47:16 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:43:06 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,12 @@ int main(int argc, char **argv)
 	if (!game.map.fd)
 		return (ft_free_struct(&game, 1), 1);
 	game.map.line = ft_file_linecount(game.map.fd);
-	ft_get_map(&game);
+	ft_get_map_setup(&game);
 	ft_print_map(&game);
+	game.map.row = ft_strlen(game.map.full_map[0]);
 	if (ft_check_map(&game))
+		return (ft_free_struct(&game, 3), 1);
+	if (ft_map_checker_check(&game.map))
 		return (ft_free_struct(&game, 3), 1);
 	ft_is_map_solvable(&game);
 	ft_set_img(&game);

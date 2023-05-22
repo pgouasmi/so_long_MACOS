@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:13:34 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/16 19:06:23 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:35:45 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,11 @@ int	ft_check_middle_lines(char *str, t_map *checker)
 	return (0);
 }
 
-/*need to add map is solvable*/
-
 int	ft_check_map(t_game *game)
 {
 	size_t	j;
 	int		flag_middle;
 
-	game->map.row = ft_strlen(game->map.full_map[0]);
 	ft_map_checker_initialize(game);
 	j = -1;
 	while (++j < game->map.line)
@@ -95,7 +92,5 @@ int	ft_check_map(t_game *game)
 				return (ft_map_error_case(4), 1);
 		}
 	}
-	if (ft_map_checker_check(&game->map))
-		return (1);
 	return (0);
 }
