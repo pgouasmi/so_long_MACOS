@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 18:35:05 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/16 18:58:09 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:47:19 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,8 @@ void	ft_render_down(t_game *game);
 void	ft_render_left(t_game *game);
 void	ft_render_right(t_game *game);
 int		ft_key_hook(int keycode, t_game *game);
-void	ft_main_render(t_game game);
+void	ft_main_render(t_game *game);
+void	ft_print_mov(t_game *game);
 
 void	ft_test();
 

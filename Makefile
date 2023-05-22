@@ -6,11 +6,11 @@
 #    By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 18:35:15 by pgouasmi          #+#    #+#              #
-#    Updated: 2023/05/15 16:14:20 by pgouasmi         ###   ########.fr        #
+#    Updated: 2023/05/17 18:31:17 by pgouasmi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long.a
+NAME = so_long
 
 SRCS = 	./utils/utils.c					\
 		./utils/get_map_from_file.c		\

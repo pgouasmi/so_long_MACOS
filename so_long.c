@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 14:26:58 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/16 18:45:12 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/22 11:10:56 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ int main(int argc, char **argv)
 	ft_printf("apres set_img : line = %d\n\n", game.map.line);
 	ft_print_map(&game);
 	ft_printf("avant render : line = %d\n\n", game.map.line);
-	ft_main_render(game);
+	ft_main_render(&game);
 }
