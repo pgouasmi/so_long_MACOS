@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:02:35 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/22 11:15:09 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:23:32 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -288,11 +288,7 @@ void ft_main_render(t_game *game)
 	ft_printf("win_width : %d\n\n", game->img.win_width);
 	game->win_ptr = mlx_new_window(game->mlx_ptr, game->img.win_width, game->img.win_height, "so_long");
 	game->mov_count = 0;
-	//mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.char_img, 0, 0);
 	mlx_loop_hook(game->mlx_ptr, &ft_render_next_frame, game);
 	mlx_hook(game->win_ptr, 2, 0, &ft_key_hook, game);
-	// mlx_hook(data->mlx_win, 17, 0, &end, data);
-	// ft_printf("loop hook OK IN\n");
-	// mlx_key_hook(game->win_ptr, key_hook, game);
 	mlx_loop(game->mlx_ptr);
 }
