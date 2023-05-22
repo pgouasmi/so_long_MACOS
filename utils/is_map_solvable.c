@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:20:50 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/11 18:38:14 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/22 13:46:40 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_find_p_pos(t_game *game)
 	game->current_p_position[1] = i;
 }
 
-int	ft_map_is_solvable(t_game *game)
+int	ft_is_map_solvable(t_game *game)
 {
 	ft_find_p_pos(game);
 	return (0);

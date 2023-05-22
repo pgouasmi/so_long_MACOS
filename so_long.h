@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 18:35:05 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/17 13:47:19 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/22 13:47:39 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int 	ft_check_middle_lines(char *str, t_map *checker);
 int		ft_map_checker_check(t_map *checker);
 int		ft_check_map_top_bottom(char *str);
 void	ft_map_error_case(int error);
-int		ft_is_map_solvable(t_map map);
+int		ft_is_map_solvable(t_game *game);
 void	ft_find_p_pos(t_game *game);
 void	ft_get_map(t_game *game);
 void	ft_set_img(t_game *game);
