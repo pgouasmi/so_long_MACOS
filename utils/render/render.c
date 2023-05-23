@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:02:35 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/22 15:34:09 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/23 10:23:30 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int ft_key_hook(int keycode, t_game *game)
 			ft_render_down(game);
 		if (keycode == 2)
 			ft_render_right(game);
-		ft_print_map(game);
+		ft_print_map(game->map.full_map);
 		ft_printf("\n");
 	}
 	return (0);

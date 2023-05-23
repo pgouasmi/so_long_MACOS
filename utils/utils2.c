@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 14:26:40 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/22 14:30:09 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/23 10:21:55 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ size_t	ft_file_linecount(int fd)
 	return (result);
 }
 
-void	ft_print_map(t_game *game)
+void	ft_print_map(char **map)
 {
 	size_t	j;
 
 	j = 0;
-	while (j < game->map.line)
+	while (map[j][0])
 	{
-		ft_printf("%s", game->map.full_map[j]);
+		ft_printf("%s", map[j]);
 		ft_printf("\n");
 		j++;
 	}

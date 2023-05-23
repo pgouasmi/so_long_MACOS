@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 18:35:05 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/22 14:42:15 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/23 10:23:46 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
 # endif
+
+typedef struct s_dup_map
+{
+	char	**dup_map;
+	int		c_count;
+	int		e_count;
+}			t_dup_map;
 
 typedef struct s_map
 {
@@ -67,6 +74,7 @@ typedef struct s_game
 {
 	t_map map;
 	t_img img;
+	t_dup_map dup_map;
 	void *mlx_ptr;
 	void *win_ptr;
 	void *img_ptr;
@@ -75,7 +83,7 @@ typedef struct s_game
 	int	mov_count;
 }	t_game;
 
-void	ft_print_map(t_game *game);
+void	ft_print_map(char **map);
 void	ft_print_row(char **map, size_t row, size_t start, size_t line_count);
 char	*ft_get_row(char **map, size_t row, size_t start, size_t line_count);
 void	ft_free_struct(t_game *game, int error_code);

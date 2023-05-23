@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:11:00 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/22 14:29:13 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/23 11:15:11 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,23 @@ int	ft_str_same_char_str(const char *str, int c)
 		i++;
 	}
 	return (1);
+}
+
+void	ft_find_p_pos(t_game *game)
+{
+	int	j;
+	int	i;
+
+	j = 0;
+	while (1)
+	{
+		if (ft_strchr((const char *)game->map.full_map[j], 'P'))
+			break ;
+		j++;
+	}
+	i = 0;
+	while (game->map.full_map[j][i] != 'P')
+		i++;
+	game->current_p_position[0] = j;
+	game->current_p_position[1] = i;
 }
