@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:13:34 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/22 14:35:45 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:02:32 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_check_middle_lines(char *str, t_map *checker)
 		}
 		else
 		{
-			if ((ft_strtrim((const char *)str, "10PCE"))[0])
+			if ((ft_strtrim((const char *)str, "10PCEX"))[0])
 				return (2);
 			if (str[i] == 'E')
 				checker->e_count++;

@@ -6,22 +6,22 @@
 #    By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 18:35:15 by pgouasmi          #+#    #+#              #
-#    Updated: 2023/05/22 14:27:17 by pgouasmi         ###   ########.fr        #
+#    Updated: 2023/05/24 15:06:58 by pgouasmi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRCS = 	./utils/utils.c					\
+SRCS = 	./utils/utils.c						\
 		./utils/utils2.c					\
-		./utils/get_map_from_file.c		\
-		./utils/is_map_solvable.c		\
-		./utils/map_checker.c			\
-		./utils/set_struct.c			\
-		./utils/free.c					\
-		./utils/solve_map.c				\
-		./utils/render/render.c			\
-		test.c							\
+		./utils/get_map_from_file.c			\
+		./utils/is_map_solvable.c			\
+		./utils/map_checker.c				\
+		./utils/set_struct.c				\
+		./utils/free.c						\
+		./utils/render/render.c				\
+		./utils/render/render_next_frame.c	\
+		./utils/render/key_hook.c			\
 
 LIBFT_PATH	=	./includes/
 
