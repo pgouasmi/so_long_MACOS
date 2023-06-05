@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 14:26:58 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/24 15:46:03 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:04:36 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ int	main(int argc, char **argv)
 	game.map.fd = open(game.map.file_name, O_RDONLY);
 	if (game.map.fd == -1)
 		return (ft_printf("Error\nFile is not accesible\n"),
-			ft_free_struct(&game, 1), 1);
+			ft_free_struct(&game, 1, 1), 1);
 	game.map.line = ft_file_linecount(game.map.fd);
 	ft_get_map_setup(&game);
 	game.map.row = ft_strlen(game.map.full_map[0]);
 	if (ft_check_map(&game))
-		return (ft_free_struct(&game, 3), 1);
+		return (ft_free_struct(&game, 3, 2), 1);
 	if (ft_map_checker_check(&game.map))
-		return (ft_free_struct(&game, 3), 1);
+		return (ft_free_struct(&game, 3, 3), 1);
 	if (ft_is_map_solvable(&game))
-		return (ft_free_struct(&game, 3), 1);
+		return (ft_free_struct(&game, 3, 4), 1);
 	ft_set_img(&game);
 	ft_main_render(&game);
 }

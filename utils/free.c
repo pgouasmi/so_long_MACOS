@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:46:49 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/11 19:22:40 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:56:35 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_free_one(t_game *game)
 	free(game->map.file_name);
 }
 
-void	ft_free_struct(t_game *game, int error_code)
+void	ft_free_struct(t_game *game, int error_code, int exit_value)
 {
 	while (error_code)
 	{
@@ -63,5 +63,5 @@ void	ft_free_struct(t_game *game, int error_code)
 			ft_free_four(game);
 		error_code--;
 	}
-	exit (1);
+	exit (exit_value);
 }

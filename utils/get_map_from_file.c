@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:18:02 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/24 13:45:36 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:08:43 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_get_map(t_game *game)
 			break ;
 		game->map.full_map[i] = ft_strdup(ft_strtrim((const char *)line, "\n"));
 		if (!game->map.full_map[i])
-			return (ft_free_struct(game, 2), exit(1));
+			return (ft_free_struct(game, 2, 6), exit(1));
 		free(line);
 		i++;
 	}
@@ -38,13 +38,13 @@ void	ft_get_map_setup(t_game *game)
 	if (game->map.line < 3)
 	{
 		ft_printf("trop peu de lignes, erreur\n");
-		ft_free_struct(game, 1);
+		ft_free_struct(game, 1, 2);
 	}
 	game->map.full_map = malloc(sizeof(char *) * (game->map.line));
 	if (!game->map.full_map)
-		return (ft_free_struct(game, 1));
+		return (ft_free_struct(game, 1, 6));
 	game->map.full_map[game->map.line] = ft_strdup("");
 	if (!game->map.full_map[game->map.line])
-		return (ft_free_struct(game, 2), exit(1));
+		return (ft_free_struct(game, 2, 6), exit(1));
 	ft_get_map(game);
 }

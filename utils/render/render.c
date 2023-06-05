@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:02:35 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/24 16:48:54 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:15:14 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 void	ft_game_win(t_game *game)
 {
 	ft_printf("Victory ! :D\n");
-	ft_free_struct(game, 4);
+	ft_free_struct(game, 4, 0);
 }
 
-void	ft_game_over(t_game *game)
+int	ft_game_over(t_game *game)
 {
 	game->mov_count++;
 	ft_printf("Game Over :/\n");
-	ft_free_struct(game, 4);
+	ft_free_struct(game, 4, 0);
+	return (0);
 }
 
 void	ft_open_door(t_game *game)
@@ -41,6 +42,7 @@ void	ft_print_mov(t_game *game)
 
 	to_display = ft_strjoin("Movements : ",
 			(const char *)ft_itoa(game->mov_count));
+	/*check malloc*/
 	mlx_string_put(game->mlx_ptr, game->win_ptr, 40, 20,
 		165115616, to_display);
 	free(to_display);
@@ -49,9 +51,10 @@ void	ft_print_mov(t_game *game)
 void	ft_main_render(t_game *game)
 {
 	game->win_ptr = mlx_new_window(game->mlx_ptr, game->img.win_width,
-			game->img.win_height, "so_long");
+			game->img.win_height, "Paint Adventures");
 	game->mov_count = 0;
 	mlx_loop_hook(game->mlx_ptr, &ft_render_next_frame, game);
+	mlx_hook(game->win_ptr, 17, 0, &ft_game_over, game);
 	mlx_hook(game->win_ptr, 2, 0, &ft_key_hook, game);
 	mlx_loop(game->mlx_ptr);
 }

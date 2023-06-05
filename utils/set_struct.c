@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:07:55 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/22 14:31:37 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:39:21 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_set_img_path(t_game *game)
 
 void	ft_img_first(t_game *game)
 {
+	/*malloc a check*/
 	game->img.char_img = mlx_new_image(game->mlx_ptr, 64, 64);
 	game->img.wall_img = mlx_new_image(game->mlx_ptr, 64, 64);
 	game->img.floor_img = mlx_new_image(game->mlx_ptr, 64, 64);
@@ -69,7 +70,7 @@ void	ft_set_img(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
 	if (!game->mlx_ptr)
-		return (ft_free_struct(game, 3), exit(1));
+		return (ft_free_struct(game, 3, 6), exit(1));
 	ft_set_img_path(game);
 	ft_img_first(game);
 	ft_set_img_void(game);

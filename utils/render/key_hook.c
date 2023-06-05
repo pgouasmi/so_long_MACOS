@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:07:43 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/24 16:56:01 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:54:00 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,8 @@ int	ft_key_hook(int keycode, t_game *game)
 	ft_print_mov(game);
 	if (keycode == 53 || keycode == 17)
 	{
-		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+		// mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+		ft_free_struct(game, 4, 7);
 		ft_printf("Exit Game successfully\n");
 		return (exit(1), 0);
 	}

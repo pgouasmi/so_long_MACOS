@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 18:35:05 by pgouasmi          #+#    #+#             */
-/*   Updated: 2023/05/24 15:44:06 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:15:22 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ typedef struct s_game
 void	ft_print_map(char **map);
 void	ft_print_row(char **map, size_t row, size_t start, size_t line_count);
 char	*ft_get_row(char **map, size_t row, size_t start, size_t line_count);
-void	ft_free_struct(t_game *game, int error_code);
+void	ft_free_struct(t_game *game, int error_code, int exit_value);
 void	ft_free_one(t_game *game);
 void	ft_free_two(t_game *game);
 void	ft_free_three(t_game *game, int *error_code);
@@ -120,7 +120,7 @@ void	ft_e_case(t_game *game);
 void	ft_main_render(t_game *game);
 void	ft_print_mov(t_game *game);
 void	ft_game_win(t_game *game);
-void	ft_game_over(t_game *game);
+int		ft_game_over(t_game *game);
 void	ft_open_door(t_game *game);
 
 #endif
